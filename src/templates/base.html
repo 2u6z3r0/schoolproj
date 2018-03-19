@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Home {% endblock %}</title>
+</head>
+<body>
+	{% block body %}
+	<div align="center">
+		Hello {{greting}}
+		<p>Current language {{LANGUAGE_CODE | language_name}}</p>
+		<h2>{{description}}</h2>
+		<p>{% trans "Let's see how django i18n works!! (str from template)" %}</p>
+	</div>
+</body>
+{% endblock %}
+</html>
