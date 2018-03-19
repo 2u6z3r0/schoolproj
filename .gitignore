@@ -148,7 +148,7 @@ pip-selfcheck.json
 *.pyc
 db.sqlite3
 media
-*/migrations/*
+src/*/migrations/*
 
 # Django secret key and db keys
 #grayhatorg/secret.py
