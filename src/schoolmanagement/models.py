@@ -19,7 +19,7 @@ class School(models.Model):
     schoolCode = models.IntegerField(default=999999)
     staffCount = models.IntegerField(default=0)
     stdCount = models.IntegerField(default=0)
-    schoolUser = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+    #schoolUser = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

@@ -7,6 +7,7 @@ from django.contrib.auth import (
 
 from django.shortcuts import render
 from .forms import UserLoginForm
+from schoolmanagement.models import School
 
 # Create your views here.
 def login_view(request):
@@ -16,7 +17,10 @@ def login_view(request):
         password = form.cleaned_data.get("password")
         user = authenticate(username=username, password=password)
         login(request, user)
-        print("logged in ", request.user.is_authenticated)
+        # print("logged in ", request.user.is_authenticated)
+        user = request.user
+        school = user.schoolid
+        return render(request, "base.html", {"user": user, "school" : school})
         #redirect
     return render(request, "form.html", {"form": form, })
 

@@ -47,7 +47,7 @@ class User(AbstractBaseUser):
     active = models.BooleanField(default=False)
     staff = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
-    schoolid = models.ManyToManyField(School, blank=True)
+    schoolid = models.ForeignKey(School, blank=True,null=True, on_delete=models.CASCADE)
     registered = models.TimeField(auto_now_add=True, auto_now=False)
     updated = models.TimeField(auto_now=True, auto_now_add=False)
 

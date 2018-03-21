@@ -9,10 +9,14 @@
 <body>
 	{% block body %}
 	<div align="center">
-		Hello {{greting}}
-		<p>Current language {{LANGUAGE_CODE | language_name}}</p>
-		<h2>{{description}}</h2>
-		<p>{% trans "Let's see how django i18n works!! (str from template)" %}</p>
+		<h1>Welcome to School Management system</h1>
+		<br>
+		{% if user.is_authenticated %}
+			<h1>School : {{ school }}</h1>
+		{% else %}
+			<h1> No school Name </h1>
+		{% endif %}
+
 	</div>
 </body>
 {% endblock %}

@@ -16,7 +16,6 @@ class UserLoginForm(forms.Form):
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         if not user:
-            print(username + password)
             raise forms.ValidationError("This user does not exists")
         if not user.check_password(password):
             raise forms.ValidationError("Incorrect password")
