@@ -5,9 +5,10 @@ from django.contrib.auth import (
     logout
     )
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import UserLoginForm
 from schoolmanagement.models import School
+
 
 # Create your views here.
 def login_view(request):
@@ -15,14 +16,18 @@ def login_view(request):
     if form.is_valid():
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
-        user = authenticate(username=username, password=password)
-        login(request, user)
+        try:
+            user = authenticate(username=username, password=password)
+            login(request, user) 
+        except:
+            print("invalid user") 
         # print("logged in ", request.user.is_authenticated)
         user = request.user
         school = user.schoolid
-        return render(request, "base.html", {"user": user, "school" : school})
         #redirect
+        return redirect(user)
     return render(request, "form.html", {"form": form, })
 
 def logout_view(request):
-    return render(request, "form.html", {})
+    logout(request)
+    return redirect(login_view)

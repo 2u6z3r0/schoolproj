@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}{{ title }} {% endblock %}</title>
+</head>
+<body>
+	{% block body %}
+	<div align="center">
+		<h1>Welcome to School Management system</h1>
+		<br>
+		<!-- {% if user.is_authenticated %}
+			<h1>School : {{ school }}</h1>
+		{% else %}
+			<h1> No school Name </h1>
+        {% endif %} -->
+
+	</div>
+</body>
+{% endblock %}
+</html>

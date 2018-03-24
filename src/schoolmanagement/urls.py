@@ -1,9 +1,11 @@
-from django.urls import re_path
+from django.urls import path
 from django.urls import include
+from .views import school_view, school_view2
 
 
 from .views import welcome
 
 urlpatterns = [
-    re_path('^$', welcome),
+    path('<int:id>/', school_view, name='school'),
+    path('', welcome),   
 ]

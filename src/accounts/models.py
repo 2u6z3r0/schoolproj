@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import (
     AbstractBaseUser, 
     BaseUserManager
@@ -70,6 +71,9 @@ class User(AbstractBaseUser):
 
     def get_short_name(self):
         return self.full_name.split(' ')[0:1]
+
+    def get_absolute_url(self):
+        return reverse("SMS:school", kwargs={"id": self.schoolid_id})
     
     @property
     def is_staff(self):
